@@ -1,0 +1,30 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+
+<main class="container">
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mb-4">
+            {% csrf_token %}
+            <h1 class="text-center display-3 py-5">Tasks list</h1>      
+
+            <ol class="list-group">
+                {% for x in list %}
+                <a class="list-group-item" href="{% url 'task_detail' x.id %}">
+                    <header class="d-flex justify-content-between">
+                        <h3 class="">{{x.title}} {% if x.important %} <strong style="color: red;"> ! </strong> {% endif %} </h3>
+                        <p style="color:brown;">{{x.user.username}}</p>
+
+                    </header>
+                    <p>{{x.description}}</p>
+
+                </a>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
