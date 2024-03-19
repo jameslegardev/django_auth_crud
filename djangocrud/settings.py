@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'django-insecure-19z*o+a3&5e+idj+m*kq8*&rb&x9sy0bz!5ffckb09q5_1i=1z'
-SECRET_KEY = os.environ.get('SECRET_KEY', default='')
+SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-19z*o+a3&5e+idj+m*kq8*&rb&x9sy0bz!5ffckb09q5_1i=1z')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
@@ -84,14 +84,10 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': BASE_DIR / 'db.sqlite3',
-        'default': dj_database_url.config(
+    'default': dj_database_url.config(
             default='postgresql://postgres:postgres@localhost/postgres',
             conn_max_age = 600,
         )
-    }
 }
 
 
