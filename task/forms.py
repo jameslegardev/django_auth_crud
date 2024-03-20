@@ -9,6 +9,7 @@ class TaskForm(forms.ModelForm):
             'description',
             'important',
         ]
+        
         widgets = {
 
             'title': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Write a title'}),
@@ -16,5 +17,3 @@ class TaskForm(forms.ModelForm):
             'important': forms.CheckboxInput(attrs={'class':'form-check-input m-auto'}),
 
         }
-
-#Me quedé en esta explicación para darle estilo a nuestros formularos personalizados
